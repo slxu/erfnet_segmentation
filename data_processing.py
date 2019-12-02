@@ -408,8 +408,7 @@ def calculate_class_weights(Y, n_classes, method="paszke", c=1.02):
 
 if __name__ == '__main__':
     # SETTINGS
-    data_dir = "/path/to/camvid"
-    data_dir = "/home/ronny/TEMP/camvid/"
+    data_dir = "./"
     pickle_file = "data_256.pickle"
     shape = [256, 256]
     width, height = shape
@@ -420,6 +419,7 @@ if __name__ == '__main__':
     print("- Getting list of files")
     file_data = create_data_dict(data_dir, X_train_subdir="train_inputs", Y_train_subdir="train_labels")
     n_samples = len(file_data["X_train"])
+    print("- Get {} files".format(n_samples))
 
     est_size = n_samples*width*height*(3+1)/(1024*1000)
     print("- Estimated data size is {} MB (+ overhead)".format(est_size))

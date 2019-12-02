@@ -705,10 +705,8 @@ class SegmentationModel(ImageClassificationModel):
                 pretrained_exclude=None):
         """ """
         # PASS THE ARGUMENTS TO THE PARENT CLASS
-        kwargs = locals()
-        kwargs.pop("self")
-        kwargs.pop("__class__")
-        super().__init__(**kwargs)
+        ImageClassificationModel.__init__(self, name, img_shape, n_channels, n_classes, dynamic, l2,
+                 best_evals_metric, pretrained_snapshot, pretrained_include, pretrained_exclude)
 
         # SETTINGS SPECIFIC TO SEGMENTATION
         # TODO: Have an option to ignore void class irrespective of
